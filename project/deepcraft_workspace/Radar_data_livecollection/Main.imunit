@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Imaginet version="2.0.0.0">
+  <Compound unit="d419d86b-7b57-41d3-9a74-ab428f13a213">
+    <Nodes>
+      <DeviceNode id="node_0" x="197.5" y="223" enabled="true" profiling="false" name="Radar" board="290de5cb-460b-41bf-1f19-8d0e2407aff7" boardName="PSOC 6 AI (CY8CKIT-06S2-AI)" device="5">
+        <Int32Argument param="use case_1">0</Int32Argument>
+      </DeviceNode>
+      <UnitNode id="node_1" x="540.5" y="218" enabled="true" profiling="false" name="Radar Data" unit="ImagimobStudio.Modules.DataTrack" />
+    </Nodes>
+    <Connections>
+      <Connection>
+        <Source node="node_0" param="Radar" />
+        <Target node="node_1" param="data" />
+      </Connection>
+    </Connections>
+  </Compound>
+</Imaginet>
