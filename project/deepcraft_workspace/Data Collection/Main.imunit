@@ -2,14 +2,14 @@
 <Imaginet version="2.0.0.0">
   <Compound unit="d419d86b-7b57-41d3-9a74-ab428f13a213">
     <Nodes>
-      <UnitNode id="node_1" x="476.66666666666663" y="370.6666666666667" enabled="true" profiling="false" name="IMU Data" unit="ImagimobStudio.Modules.DataTrack" />
-      <LabelListNode id="node_2" width="120" height="120" x="405.33333333333337" y="142.66666666666666" enabled="true" profiling="false" name="Predefined Labels">
+      <LabelListNode id="node_2" width="120" height="120" x="290.9333333333334" y="146.66666666666666" enabled="true" profiling="false" name="Predefined Labels">
         <Label>On</Label>
         <Label>Off</Label>
         <Label>Dimmer</Label>
         <Label>Lighter</Label>
       </LabelListNode>
       <DeviceNode id="node_0" x="106.66666666666663" y="343.3333333333333" enabled="true" profiling="false" name="IMU" board="290de5cb-460b-41bf-1f19-8d0e2316aff7" boardName="PSOC 6 AI (CY8CKIT-06S2-AI)" device="2" />
+      <UnitNode id="node_1" x="476.66666666666663" y="370.6666666666667" enabled="true" profiling="false" name="IMU Data" unit="ImagimobStudio.Modules.DataTrack" />
     </Nodes>
     <Connections>
       <Connection>
