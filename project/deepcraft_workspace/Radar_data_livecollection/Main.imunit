@@ -2,28 +2,22 @@
 <Imaginet version="2.0.0.0">
   <Compound unit="d419d86b-7b57-41d3-9a74-ab428f13a213">
     <Nodes>
-      <UnitNode id="node_13" x="957.5435359285286" y="209.88406410339695" enabled="true" profiling="false" unit="Imaginet.Units.Signal.PowToDb" />
-      <LabelListNode id="node_11" width="120" height="120" x="599.7748936170211" y="383.0229787234043" enabled="true" profiling="false" name="Predefined Labels">
+      <UnitNode id="node_17" x="984.906262492706" y="534.8757003397848" enabled="true" profiling="false" name="conv2d-medium-balanced-0 model Labels" unit="ImagimobStudio.Modules.LabelTrack">
+        <DoubleArgument param="threshold_enter">0.99</DoubleArgument>
+      </UnitNode>
+      <DeviceNode id="node_14" x="316" y="217.5" enabled="true" profiling="false" name="Radar" board="290de5cb-460b-41bf-1f19-8d0e2407aff7" boardName="PSOC 6 AI (CY8CKIT-06S2-AI)" device="5" />
+      <UnitNode id="node_5" x="1656.549402811266" y="229.5689754723457" enabled="true" profiling="false" name="Radar Data" unit="ImagimobStudio.Modules.DataTrack" />
+      <UnitNode id="node_19" x="641.7188942367833" y="217.1370586514392" enabled="true" profiling="false" name="Radar Data" unit="ImagimobStudio.Modules.DataTrack" />
+      <LabelListNode id="node_11" width="120" height="120" x="586.5723362809083" y="17.312140513080024" enabled="true" profiling="false" name="Predefined Labels">
         <Label>empty_box</Label>
         <Label>full_box</Label>
         <Label>table</Label>
       </LabelListNode>
-      <DeviceNode id="node_7" x="227.43446808510652" y="205.36340425531904" enabled="true" profiling="false" name="Radar" board="290de5cb-460b-41bf-1f19-8d0f2730aff7" boardName="PSOC 6 AI (CY8CKIT-06S2-AI)" device="5" />
-      <UnitNode id="node_8" x="667.6526847825668" y="226.13700619837346" enabled="true" profiling="false" unit="Imaginet.Units.Math.Abs" />
-      <UnitNode id="node_5" x="1656.549402811266" y="229.5689754723457" enabled="true" profiling="false" name="Radar Data" unit="ImagimobStudio.Modules.DataTrack" />
     </Nodes>
     <Connections>
       <Connection>
-        <Source node="node_7" param="Radar" />
-        <Target node="node_8" param="input" />
-      </Connection>
-      <Connection>
-        <Source node="node_8" param="output" />
-        <Target node="node_13" param="input" />
-      </Connection>
-      <Connection>
-        <Source node="node_13" param="output" />
-        <Target node="node_5" param="data" />
+        <Source node="node_14" param="Radar" />
+        <Target node="node_19" param="data" />
       </Connection>
     </Connections>
   </Compound>

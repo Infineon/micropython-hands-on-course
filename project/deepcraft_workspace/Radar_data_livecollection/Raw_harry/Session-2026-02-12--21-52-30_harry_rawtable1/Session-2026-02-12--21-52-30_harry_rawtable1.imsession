@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="0.9">
+  <Timeline id="6167c367-fbf6-4cc4-88a5-e973698fcbaa">
+    <Tracks>
+      <Track name="Radar Data" type="datacsv" isLabelTrack="False">
+        <PayloadFile>Radar-Data.data</PayloadFile>
+        <Shape>
+          <Axis name="Antenna" size="1" />
+          <Axis name="Sample" size="128" />
+          <Axis name="Chirp" size="1" />
+        </Shape>
+      </Track>
+      <Track name="Live Labeling" type="labelcsv">
+        <PayloadFile>Live-Labeling.label</PayloadFile>
+        <Shape>
+          <Axis name="Labels" size="0" />
+        </Shape>
+      </Track>
+    </Tracks>
+  </Timeline>
+</ImagimobStudio>
