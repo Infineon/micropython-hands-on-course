@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="0.9">
+  <Timeline id="e1bfadd1-5190-4d05-ad1f-3602d9682551">
+    <Tracks>
+      <Track name="Frobenius norm Data" type="datacsv" isLabelTrack="False">
+        <PayloadFile>Frobenius-norm-Data.data</PayloadFile>
+        <Shape>
+          <Axis name="Antenna" size="1" />
+          <Axis name="" size="65" />
+          <Axis name="Chirp" size="1" />
+        </Shape>
+      </Track>
+      <Track name="Live Labeling" type="labelcsv">
+        <PayloadFile>Live-Labeling.label</PayloadFile>
+        <Shape />
+      </Track>
+    </Tracks>
+  </Timeline>
+</ImagimobStudio>

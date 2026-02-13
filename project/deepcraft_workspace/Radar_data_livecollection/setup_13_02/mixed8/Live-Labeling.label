@@ -1,0 +1,4 @@
+Time(Seconds),Length(Seconds),Label(string),Confidence(double),Comment(string)
+4.3881152,67.5356432,table,1,
+89.1213856,142.0336144,empty_box,1,
+236.59,39.94906880000001,empty_box,1,
