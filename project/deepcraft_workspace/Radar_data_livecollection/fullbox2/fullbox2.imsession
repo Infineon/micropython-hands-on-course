@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="0.9">
+  <Timeline id="e6765288-d78b-4303-9f06-c7bc65858b8b">
+    <Tracks>
+      <Track name="Live Labeling" type="labelcsv">
+        <PayloadFile>Live-Labeling.label</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="Radar Data" type="datacsv" timecoded="TimestampBegin" isLabelTrack="False" frequency="200">
+        <PayloadFile>Radar-Data.data</PayloadFile>
+        <Offset unit="seconds">2.4999000000E-003</Offset>
+        <Shape>
+          <Axis name="Antenna" size="1" />
+          <Axis name="" size="65" />
+          <Axis name="Chirp" size="1" />
+        </Shape>
+      </Track>
+    </Tracks>
+  </Timeline>
+</ImagimobStudio>
