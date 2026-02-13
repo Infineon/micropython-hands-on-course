@@ -2,15 +2,22 @@
 <Imaginet version="2.0.0.0">
   <Compound unit="d419d86b-7b57-41d3-9a74-ab428f13a213">
     <Nodes>
-      <DeviceNode id="node_0" x="197.5" y="223" enabled="true" profiling="false" name="Radar" board="290de5cb-460b-41bf-1f19-8d0e2407aff7" boardName="PSOC 6 AI (CY8CKIT-06S2-AI)" device="5">
-        <Int32Argument param="use case_1">0</Int32Argument>
-      </DeviceNode>
-      <UnitNode id="node_1" x="540.5" y="218" enabled="true" profiling="false" name="Radar Data" unit="ImagimobStudio.Modules.DataTrack" />
+      <UnitNode id="node_17" x="984.906262492706" y="534.8757003397848" enabled="true" profiling="false" name="conv2d-medium-balanced-0 model Labels" unit="ImagimobStudio.Modules.LabelTrack">
+        <DoubleArgument param="threshold_enter">0.99</DoubleArgument>
+      </UnitNode>
+      <DeviceNode id="node_14" x="316" y="217.5" enabled="true" profiling="false" name="Radar" board="290de5cb-460b-41bf-1f19-8d0e2407aff7" boardName="PSOC 6 AI (CY8CKIT-06S2-AI)" device="5" />
+      <UnitNode id="node_5" x="1656.549402811266" y="229.5689754723457" enabled="true" profiling="false" name="Radar Data" unit="ImagimobStudio.Modules.DataTrack" />
+      <UnitNode id="node_19" x="641.7188942367833" y="217.1370586514392" enabled="true" profiling="false" name="Radar Data" unit="ImagimobStudio.Modules.DataTrack" />
+      <LabelListNode id="node_11" width="120" height="120" x="586.5723362809083" y="17.312140513080024" enabled="true" profiling="false" name="Predefined Labels">
+        <Label>empty_box</Label>
+        <Label>full_box</Label>
+        <Label>table</Label>
+      </LabelListNode>
     </Nodes>
     <Connections>
       <Connection>
-        <Source node="node_0" param="Radar" />
-        <Target node="node_1" param="data" />
+        <Source node="node_14" param="Radar" />
+        <Target node="node_19" param="data" />
       </Connection>
     </Connections>
   </Compound>
