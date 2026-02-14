@@ -1,0 +1,13 @@
+Time(Seconds),Length(Seconds),Label(string),Confidence(double),Comment(string)
+10.8976502,1.2345132,Lighter,1,
+19.8438714,1.3495575,Lighter,1,
+29.349721,1.8938053,Lighter,1,
+39.0759068,1.8318584,Lighter,1,
+49.6219244,1.9469026,Lighter,1,
+59.7145088,1.7035398,Lighter,1,
+69.7212609,1.8407079,Lighter,1,
+79.0752077,1.4778761,Lighter,1,
+89.5377119,1.619469,Lighter,1,
+98.0084198,2.0929203,Lighter,1,
+109.6272958,1.6725663,Lighter,1,
+121.0573666,1.4424778,Lighter,1,
