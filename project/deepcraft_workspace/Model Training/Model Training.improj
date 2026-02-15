@@ -3,7 +3,7 @@
   <Job id="35da1f89-04e5-44a7-ab32-46d1f0cb92d5" />
   <ProjectType>Classification</ProjectType>
   <ProjectId>7206bd89-dc16-41d6-a329-a07d235a8314</ProjectId>
-  <Preprocessor inshape="[2,3]" intype="Float32" infreq="50" outshape="[100,6]" outtype="Float32">
+  <Preprocessor inshape="[1]" intype="Float32" infreq="1" outshape="[100,6]" outtype="Float32">
     <Unit id="Core.Packages.ContextualWindow">
       <Argument param="contextual_length_sec" type="Double">2</Argument>
       <Argument param="prediction_freq" type="Double">5</Argument>
@@ -31,7 +31,7 @@
     <Downscale>False</Downscale>
     <LearnRate>Mid</LearnRate>
     <RegularizationFactor>Low</RegularizationFactor>
-    <LastNetworkInputShape>[10]</LastNetworkInputShape>
+    <LastNetworkInputShape>[100,6]</LastNetworkInputShape>
     <LastClassCount>2</LastClassCount>
     <Optimizer>
       <LearningRate>0.001</LearningRate>
@@ -45,47 +45,9 @@
   <Database balance="AnnotatedLength" redistributionScope="Everything">
     <SymbolMap>
       <Symbol name="(unlabeled)" id="0" weight="1" />
-      <Symbol name="On" id="1" weight="1" />
     </SymbolMap>
     <DataSet id="unassigned" targetSize="0" labels="Unassigned" />
-    <DataSet id="train" targetSize="0.6" labels="Complete">
-      <Session name="Circle_Session_down_Manuel" sessionId="d31d5d6f-3c89-4359-96ba-e9af45bca753" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
-        <DataFile shape="[2,3]" samplerate="50" modified="5250751029042533086" start="0.0099999" length="111.02">../Data Collection/Datasets/Circle_Session_down_Manuel/IMU-Data.data</DataFile>
-        <SessionFile>../Data Collection/Datasets/Circle_Session_down_Manuel/Circle_Session_down_Manuel.imsession</SessionFile>
-        <LabelFile modified="5250751029042372176">../Data Collection/Datasets/Circle_Session_down_Manuel/Live-Labeling.label</LabelFile>
-        <Labels>
-          <Label count="49" length="51.0044134">On</Label>
-        </Labels>
-        <CustomColumnValues />
-      </Session>
-      <Session name="Circle_Session_left_Manuel" sessionId="d8262f12-6452-4f1b-86b7-82ca5342d8c3" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
-        <DataFile shape="[2,3]" samplerate="50" modified="5250751025651409735" start="0.0099999" length="92.14">../Data Collection/Datasets/Circle_Session_left_Manuel/IMU-Data.data</DataFile>
-        <SessionFile>../Data Collection/Datasets/Circle_Session_left_Manuel/Circle_Session_left_Manuel.imsession</SessionFile>
-        <LabelFile modified="5250751025651191356">../Data Collection/Datasets/Circle_Session_left_Manuel/Live-Labeling.label</LabelFile>
-        <Labels>
-          <Label count="47" length="49.6149484">On</Label>
-        </Labels>
-        <CustomColumnValues />
-      </Session>
-      <Session name="Circle_Session_right_Manuel" sessionId="49645215-d0eb-44d4-b3a6-66756d6cecdf" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
-        <DataFile shape="[2,3]" samplerate="50" modified="5250751033158060951" start="0.0099999" length="125.10000000000001">../Data Collection/Datasets/Circle_Session_right_Manuel/IMU-Data.data</DataFile>
-        <SessionFile>../Data Collection/Datasets/Circle_Session_right_Manuel/Circle_Session_right_Manuel.imsession</SessionFile>
-        <LabelFile modified="5250751033157895772">../Data Collection/Datasets/Circle_Session_right_Manuel/Live-Labeling.label</LabelFile>
-        <Labels>
-          <Label count="45" length="51.6507654">On</Label>
-        </Labels>
-        <CustomColumnValues />
-      </Session>
-      <Session name="Circle_Session_up_manuel" sessionId="9e44c6f4-77f9-44c5-a3f9-a938f4a66282" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
-        <DataFile shape="[2,3]" samplerate="50" modified="5250751021604661758" start="0.0099999" length="123.82000000000001">../Data Collection/Datasets/Circle_Session_up_manuel/IMU-Data.data</DataFile>
-        <SessionFile>../Data Collection/Datasets/Circle_Session_up_manuel/Circle_Session_up_manuel.imsession</SessionFile>
-        <LabelFile modified="5250751021604181652">../Data Collection/Datasets/Circle_Session_up_manuel/Live-Labeling.label</LabelFile>
-        <Labels>
-          <Label count="46" length="53.2405669">On</Label>
-        </Labels>
-        <CustomColumnValues />
-      </Session>
-    </DataSet>
+    <DataSet id="train" targetSize="0.6" labels="Complete" />
     <DataSet id="validation" targetSize="0.2" labels="Complete" />
     <DataSet id="test" targetSize="0.2" labels="Complete" />
   </Database>

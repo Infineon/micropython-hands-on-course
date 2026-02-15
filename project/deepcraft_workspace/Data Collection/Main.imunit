@@ -2,6 +2,7 @@
 <Imaginet version="2.0.0.0">
   <Compound unit="d419d86b-7b57-41d3-9a74-ab428f13a213">
     <Nodes>
+      <DeviceNode id="node_4" x="152.0000000000001" y="376.40000000000003" enabled="true" profiling="false" name="IMU" board="290de5cb-460b-41bf-1f19-8d0e2316aff7" boardName="PSOC 6 AI (CY8CKIT-06S2-AI)" device="2" />
       <LabelListNode id="node_2" width="120" height="120" x="290.9333333333334" y="146.66666666666666" enabled="true" profiling="false" name="Predefined Labels">
         <Label>On</Label>
         <Label>Off</Label>
@@ -9,11 +10,10 @@
         <Label>Lighter</Label>
       </LabelListNode>
       <UnitNode id="node_1" x="585.4666666666667" y="417.8666666666666" enabled="true" profiling="false" name="IMU Data" unit="ImagimobStudio.Modules.DataTrack" />
-      <DeviceNode id="node_3" x="173.19999999999987" y="355.6" enabled="true" profiling="false" name="IMU" board="290de5cb-460b-41bf-1f19-8d0e2242aff7" boardName="PSOC 6 AI (CY8CKIT-06S2-AI)" device="2" />
     </Nodes>
     <Connections>
       <Connection>
-        <Source node="node_3" param="Combined" />
+        <Source node="node_4" param="Combined" />
         <Target node="node_1" param="data" />
       </Connection>
     </Connections>
