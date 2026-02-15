@@ -34,7 +34,8 @@ next_loop = time.ticks_ms()
 # --- Main Loop ---
 while True:    
     # --- read sensor data ---
-    # [2,3] array    
+    # [2,3] array
+    # Data format from Deepcraft: Accel_X,Accel_Y,Accel_Z,Gyro_X,Gyro_Y,Gyro_Z
     sensor_data = [bmi.accel(), bmi.gyro()]
 
 
@@ -49,6 +50,7 @@ while True:
         for idx, score in enumerate(output_buffer):
             # End is a carriage return and not a newline. This way the output gets overwritten
             print(f"Label: {LABELS[idx]:<12} Score: {score*100:.2f}%", end='\r')
+    
     
     # --- timing to 50Hz ---
     # calculate the starting point of the next iteration
