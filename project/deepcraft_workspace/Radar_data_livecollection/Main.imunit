@@ -2,33 +2,33 @@
 <Imaginet version="2.0.0.0">
   <Compound unit="d419d86b-7b57-41d3-9a74-ab428f13a213">
     <Nodes>
-      <UnitNode id="node_26" x="947.0626659006035" y="620.2842923557306" enabled="true" profiling="false" name="conv1d-medium-balanced-1 model Labels" unit="ImagimobStudio.Modules.LabelTrack" />
       <LabelListNode id="node_11" width="120" height="120" x="813.1091100530722" y="13.557387356635317" enabled="true" profiling="false" name="Predefined Labels">
         <Label>empty_box</Label>
         <Label>full_box</Label>
         <Label>table</Label>
       </LabelListNode>
-      <UnitNode id="node_22" x="1050.9111043710332" y="325.66859220047155" enabled="true" profiling="false" unit="Imaginet.Units.Math.Norm" />
-      <UnitNode id="node_23" x="1476.7947470338793" y="408.32372243165923" enabled="true" profiling="false" name="Frobenius norm Data" unit="ImagimobStudio.Modules.DataTrack" />
-      <DotNetNode id="node_24" x="428.5879810166088" y="428.9655523495119" enabled="true" profiling="false" name="conv1d-medium-balanced-1 preprocessor">
-        <Interop assembly="Imaginet.Units.KerasModel" class="Imaginet.Units.KerasModel.KerasModel" method="LoadPreprocessor" />
-        <Input param="input" type="Tensor" />
-        <Input param="File" type="FileReference">
-          <StringArgument>C:/Users/mhack/OneDrive - HTBLuVA Wiener Neustadt/Desktop/UNI/Edge_AI/01_Radar_Scanner_git/micropython-hands-on-course/project/deepcraft_workspace/Box_classification/Models/conv1d-medium-balanced-1/conv1d-medium-balanced-1.h5</StringArgument>
-        </Input>
-        <Output param="output" type="Tensor" />
-      </DotNetNode>
-      <DotNetNode id="node_25" x="414.67231132992487" y="574.4444697711826" enabled="true" profiling="false" name="conv1d-medium-balanced-1 model">
-        <Interop assembly="Imaginet.Units.KerasModel" class="Imaginet.Units.KerasModel.KerasModel" method="LoadNetwork" />
-        <Input param="input" type="Tensor" />
-        <Input param="File" type="FileReference">
-          <StringArgument>C:/Users/mhack/OneDrive - HTBLuVA Wiener Neustadt/Desktop/UNI/Edge_AI/01_Radar_Scanner_git/micropython-hands-on-course/project/deepcraft_workspace/Box_classification/Models/conv1d-medium-balanced-1/conv1d-medium-balanced-1.h5</StringArgument>
-        </Input>
-        <Output param="output" type="Tensor" />
-      </DotNetNode>
+      <UnitNode id="node_26" x="1244.8765808197038" y="613.4443506586045" enabled="true" profiling="false" name="conv1d-medium-balanced-1 model Labels" unit="ImagimobStudio.Modules.LabelTrack" />
       <UnitNode id="node_21" x="701.7857035437778" y="314.56566425896875" enabled="true" profiling="false" unit="Imaginet.Units.Signal.RealFft">
         <Int32Argument param="axis">1</Int32Argument>
       </UnitNode>
+      <DotNetNode id="node_27" x="771.7676674558892" y="572.0242627148423" enabled="true" profiling="false" name="conv1d-medium-balanced-3 preprocessor">
+        <Interop assembly="Imaginet.Units.KerasModel" class="Imaginet.Units.KerasModel.KerasModel" method="LoadPreprocessor" />
+        <Input param="input" type="Tensor" />
+        <Input param="File" type="FileReference">
+          <StringArgument>C:/Users/fuchs/Documents/Uni/Edge_AI/micropython-hands-on-course/project/deepcraft_workspace/Box_classification/Models/15_02/no_avgsub/conv1d-medium-balanced-3/conv1d-medium-balanced-3.h5</StringArgument>
+        </Input>
+        <Output param="output" type="Tensor" />
+      </DotNetNode>
+      <UnitNode id="node_23" x="1476.7947470338793" y="408.32372243165923" enabled="true" profiling="false" name="Frobenius norm Data" unit="ImagimobStudio.Modules.DataTrack" />
+      <UnitNode id="node_22" x="1050.9111043710332" y="325.66859220047155" enabled="true" profiling="false" unit="Imaginet.Units.Math.Norm" />
+      <DotNetNode id="node_28" x="771.7676674558892" y="714.0242627148423" enabled="true" profiling="false" name="conv1d-medium-balanced-3 model">
+        <Interop assembly="Imaginet.Units.KerasModel" class="Imaginet.Units.KerasModel.KerasModel" method="LoadNetwork" />
+        <Input param="input" type="Tensor" />
+        <Input param="File" type="FileReference">
+          <StringArgument>C:/Users/fuchs/Documents/Uni/Edge_AI/micropython-hands-on-course/project/deepcraft_workspace/Box_classification/Models/15_02/no_avgsub/conv1d-medium-balanced-3/conv1d-medium-balanced-3.h5</StringArgument>
+        </Input>
+        <Output param="output" type="Tensor" />
+      </DotNetNode>
       <DeviceNode id="node_20" x="228.01143169324973" y="228.03684583485665" enabled="true" profiling="false" name="Radar" board="290de5cb-460b-41bf-1f19-8d0f2730aff7" boardName="PSOC 6 AI (CY8CKIT-06S2-AI)" device="5" />
     </Nodes>
     <Connections>
@@ -45,15 +45,15 @@
         <Target node="node_23" param="data" />
       </Connection>
       <Connection>
-        <Source node="node_24" param="output" />
-        <Target node="node_25" param="input" />
+        <Source node="node_27" param="output" />
+        <Target node="node_28" param="input" />
       </Connection>
       <Connection>
         <Source node="node_22" param="output" />
-        <Target node="node_24" param="input" />
+        <Target node="node_27" param="input" />
       </Connection>
       <Connection>
-        <Source node="node_25" param="output" />
+        <Source node="node_28" param="output" />
         <Target node="node_26" param="data" />
       </Connection>
     </Connections>

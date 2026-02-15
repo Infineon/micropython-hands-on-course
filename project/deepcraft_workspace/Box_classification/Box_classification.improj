@@ -1,9 +1,16 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ImagimobStudio version="1.1.0">
-  <Job id="582d93a0-08cf-11f1-84b0-a3fb97587cd1" />
+  <Job id="64a8c719-0a64-11f1-a297-6979d6c29ab0" />
   <ProjectType>Classification</ProjectType>
   <ProjectId>dfaec934-3d93-4903-b017-011e08110e0f</ProjectId>
   <Preprocessor inshape="[1,65,1]" intype="Float32" infreq="200" outshape="[100,65]" outtype="Float32">
+    <Unit id="Core.Signal.PowToDb">
+      <Argument param="input" type="String">data</Argument>
+      <Argument param="ref" type="Double">1</Argument>
+      <Argument param="amin" type="Double">1E-05</Argument>
+      <Argument param="topdb" type="Double">40</Argument>
+      <Argument param="output" type="String">data</Argument>
+    </Unit>
     <Unit id="Core.Packages.ContextualWindow">
       <Argument param="contextual_length_sec" type="Double">0.5</Argument>
       <Argument param="prediction_freq" type="Double">10</Argument>
@@ -18,12 +25,12 @@
     <BatchSize>16</BatchSize>
     <SplitCount>16</SplitCount>
     <Patience>20</Patience>
-    <AppendModels>True</AppendModels>
+    <AppendModels>False</AppendModels>
     <LossFunction>CategoricalCrossentropy</LossFunction>
     <HardwareType>Infineon</HardwareType>
     <TrainingEnvironment>
     </TrainingEnvironment>
-    <ModelFamily>Conv2D</ModelFamily>
+    <ModelFamily>Conv1D</ModelFamily>
     <ModelFlavor>LargeKern</ModelFlavor>
     <ClassifierType>Dense</ClassifierType>
     <Optimization>Balanced</Optimization>
@@ -43,7 +50,7 @@
     </BuildSteps>
   </ModelFactory>
   <Models>
-    <Model name="conv1d-medium-balanced-0" id="eff08797-b237-4f47-9a37-55d312645d38">
+    <Model name="conv1d-medium-balanced-0" id="d2fa708d-bed1-49f3-8773-1ea6cad9a964">
       <LossFunction>CategoricalCrossentropy</LossFunction>
       <Epochs>100</Epochs>
       <BatchSize>16</BatchSize>
@@ -157,6 +164,13 @@
         <SymbolWeight symbol="table" weight="1" />
       </SymbolWeights>
       <Preprocessor override="False" inshape="[1,65,1]" intype="Float32" infreq="200" outshape="[100,65]" outtype="Float32">
+        <Unit id="Core.Signal.PowToDb">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="ref" type="Double">1</Argument>
+          <Argument param="amin" type="Double">1E-05</Argument>
+          <Argument param="topdb" type="Double">40</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
         <Unit id="Core.Packages.ContextualWindow">
           <Argument param="contextual_length_sec" type="Double">0.5</Argument>
           <Argument param="prediction_freq" type="Double">10</Argument>
@@ -168,7 +182,7 @@
       </Preprocessor>
       <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
     </Model>
-    <Model name="conv1d-medium-balanced-1" id="0f568d7d-04cf-4ec1-b3a8-a1010b767977">
+    <Model name="conv1d-medium-balanced-1" id="2855a9ce-59b6-4ea3-83fe-78bd9733795e">
       <LossFunction>CategoricalCrossentropy</LossFunction>
       <Epochs>100</Epochs>
       <BatchSize>16</BatchSize>
@@ -282,6 +296,13 @@
         <SymbolWeight symbol="table" weight="1" />
       </SymbolWeights>
       <Preprocessor override="False" inshape="[1,65,1]" intype="Float32" infreq="200" outshape="[100,65]" outtype="Float32">
+        <Unit id="Core.Signal.PowToDb">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="ref" type="Double">1</Argument>
+          <Argument param="amin" type="Double">1E-05</Argument>
+          <Argument param="topdb" type="Double">40</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
         <Unit id="Core.Packages.ContextualWindow">
           <Argument param="contextual_length_sec" type="Double">0.5</Argument>
           <Argument param="prediction_freq" type="Double">10</Argument>
@@ -293,7 +314,7 @@
       </Preprocessor>
       <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
     </Model>
-    <Model name="conv1d-medium-balanced-2" id="ecac964d-df7a-4bd2-94c1-d86a28aa36c8">
+    <Model name="conv1d-medium-balanced-2" id="94a9d6f0-6aaa-4344-a998-325fa9e34f26">
       <LossFunction>CategoricalCrossentropy</LossFunction>
       <Epochs>100</Epochs>
       <BatchSize>16</BatchSize>
@@ -407,6 +428,13 @@
         <SymbolWeight symbol="table" weight="1" />
       </SymbolWeights>
       <Preprocessor override="False" inshape="[1,65,1]" intype="Float32" infreq="200" outshape="[100,65]" outtype="Float32">
+        <Unit id="Core.Signal.PowToDb">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="ref" type="Double">1</Argument>
+          <Argument param="amin" type="Double">1E-05</Argument>
+          <Argument param="topdb" type="Double">40</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
         <Unit id="Core.Packages.ContextualWindow">
           <Argument param="contextual_length_sec" type="Double">0.5</Argument>
           <Argument param="prediction_freq" type="Double">10</Argument>
@@ -418,7 +446,7 @@
       </Preprocessor>
       <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
     </Model>
-    <Model name="conv1d-medium-balanced-3" id="6f2fed76-9c12-4637-b711-a78be5cdfc45">
+    <Model name="conv1d-medium-balanced-3" id="b9c049f2-ca16-4aba-8e55-4116113c3992">
       <LossFunction>CategoricalCrossentropy</LossFunction>
       <Epochs>100</Epochs>
       <BatchSize>16</BatchSize>
@@ -532,518 +560,13 @@
         <SymbolWeight symbol="table" weight="1" />
       </SymbolWeights>
       <Preprocessor override="False" inshape="[1,65,1]" intype="Float32" infreq="200" outshape="[100,65]" outtype="Float32">
-        <Unit id="Core.Packages.ContextualWindow">
-          <Argument param="contextual_length_sec" type="Double">0.5</Argument>
-          <Argument param="prediction_freq" type="Double">10</Argument>
+        <Unit id="Core.Signal.PowToDb">
           <Argument param="input" type="String">data</Argument>
-          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="ref" type="Double">1</Argument>
+          <Argument param="amin" type="Double">1E-05</Argument>
+          <Argument param="topdb" type="Double">40</Argument>
           <Argument param="output" type="String">data</Argument>
-          <Argument param="time_output" type="String">time</Argument>
         </Unit>
-      </Preprocessor>
-      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
-    </Model>
-    <Model name="conv2d-medium-balanced-0" id="e9d33ac1-315b-4ce7-b424-81afb47f4c08">
-      <LossFunction>CategoricalCrossentropy</LossFunction>
-      <Epochs>100</Epochs>
-      <BatchSize>16</BatchSize>
-      <SplitCount>16</SplitCount>
-      <Patience>20</Patience>
-      <TrainingEnvironment>
-      </TrainingEnvironment>
-      <Optimizer>
-        <LearningRate>0.004</LearningRate>
-        <WeightDecay>0.0001</WeightDecay>
-      </Optimizer>
-      <Network inshape="[100,65]" intype="Float32" infreq="0" outshape="[3]" outtype="Float32">
-        <Unit id="Core.Layers.Reshape">
-          <Argument param="shape" type="Shape">[100,65,1]</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Convolution2D">
-          <Argument param="filters" type="Int32">12</Argument>
-          <Argument param="kernel_size" type="Shape">[5,5]</Argument>
-          <Argument param="strides" type="Shape">[2,2]</Argument>
-          <Argument param="padding" type="String">same</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-        </Unit>
-        <Unit id="Core.Layers.BatchNormalization">
-          <Argument param="epsilon" type="Double">0.001</Argument>
-          <Argument param="axis" type="Int32">-1</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Activation">
-          <Argument param="activation" type="String">relu</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Convolution2D">
-          <Argument param="filters" type="Int32">24</Argument>
-          <Argument param="kernel_size" type="Shape">[5,5]</Argument>
-          <Argument param="strides" type="Shape">[2,2]</Argument>
-          <Argument param="padding" type="String">same</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Convolution2D">
-          <Argument param="filters" type="Int32">24</Argument>
-          <Argument param="kernel_size" type="Shape">[5,5]</Argument>
-          <Argument param="strides" type="Shape">[2,2]</Argument>
-          <Argument param="padding" type="String">same</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-        </Unit>
-        <Unit id="Core.Layers.BatchNormalization">
-          <Argument param="epsilon" type="Double">0.001</Argument>
-          <Argument param="axis" type="Int32">-1</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Activation">
-          <Argument param="activation" type="String">relu</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Convolution2D">
-          <Argument param="filters" type="Int32">32</Argument>
-          <Argument param="kernel_size" type="Shape">[3,3]</Argument>
-          <Argument param="strides" type="Shape">[1,1]</Argument>
-          <Argument param="padding" type="String">same</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Convolution2D">
-          <Argument param="filters" type="Int32">32</Argument>
-          <Argument param="kernel_size" type="Shape">[3,3]</Argument>
-          <Argument param="strides" type="Shape">[1,1]</Argument>
-          <Argument param="padding" type="String">same</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-        </Unit>
-        <Unit id="Core.Layers.BatchNormalization">
-          <Argument param="epsilon" type="Double">0.001</Argument>
-          <Argument param="axis" type="Int32">-1</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Activation">
-          <Argument param="activation" type="String">relu</Argument>
-        </Unit>
-        <Unit id="Core.Layers.MaxPool2D">
-          <Argument param="pool_size" type="Shape">[2,2]</Argument>
-          <Argument param="strides" type="Shape">[2,2]</Argument>
-          <Argument param="padding" type="String">valid</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Flatten" />
-        <Unit id="Core.Layers.Dense">
-          <Argument param="units" type="Int32">30</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-        </Unit>
-        <Unit id="Core.Layers.BatchNormalization">
-          <Argument param="epsilon" type="Double">0.001</Argument>
-          <Argument param="axis" type="Int32">-1</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Activation">
-          <Argument param="activation" type="String">relu</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Dropout">
-          <Argument param="rate" type="Double">0.1</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Dense">
-          <Argument param="units" type="Int32">3</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Activation">
-          <Argument param="activation" type="String">softmax</Argument>
-        </Unit>
-      </Network>
-      <BuildSteps>
-        <Training />
-        <ConfusionMatrix />
-      </BuildSteps>
-      <SymbolWeights override="False">
-        <SymbolWeight symbol="(unlabeled)" weight="1" />
-        <SymbolWeight symbol="empty_box" weight="1" />
-        <SymbolWeight symbol="table" weight="1" />
-      </SymbolWeights>
-      <Preprocessor override="False" inshape="[1,65,1]" intype="Float32" infreq="200" outshape="[100,65]" outtype="Float32">
-        <Unit id="Core.Packages.ContextualWindow">
-          <Argument param="contextual_length_sec" type="Double">0.5</Argument>
-          <Argument param="prediction_freq" type="Double">10</Argument>
-          <Argument param="input" type="String">data</Argument>
-          <Argument param="time_input" type="String">time</Argument>
-          <Argument param="output" type="String">data</Argument>
-          <Argument param="time_output" type="String">time</Argument>
-        </Unit>
-      </Preprocessor>
-      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
-    </Model>
-    <Model name="conv2d-medium-balanced-1" id="a15eedde-69f1-41a6-bf24-429ebbf084f7">
-      <LossFunction>CategoricalCrossentropy</LossFunction>
-      <Epochs>100</Epochs>
-      <BatchSize>16</BatchSize>
-      <SplitCount>16</SplitCount>
-      <Patience>20</Patience>
-      <TrainingEnvironment>
-      </TrainingEnvironment>
-      <Optimizer>
-        <LearningRate>0.004</LearningRate>
-        <WeightDecay>0.0001</WeightDecay>
-      </Optimizer>
-      <Network inshape="[100,65]" intype="Float32" infreq="0" outshape="[3]" outtype="Float32">
-        <Unit id="Core.Layers.Reshape">
-          <Argument param="shape" type="Shape">[100,65,1]</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Convolution2D">
-          <Argument param="filters" type="Int32">16</Argument>
-          <Argument param="kernel_size" type="Shape">[5,5]</Argument>
-          <Argument param="strides" type="Shape">[2,2]</Argument>
-          <Argument param="padding" type="String">same</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-        </Unit>
-        <Unit id="Core.Layers.BatchNormalization">
-          <Argument param="epsilon" type="Double">0.001</Argument>
-          <Argument param="axis" type="Int32">-1</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Activation">
-          <Argument param="activation" type="String">relu</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Convolution2D">
-          <Argument param="filters" type="Int32">16</Argument>
-          <Argument param="kernel_size" type="Shape">[5,5]</Argument>
-          <Argument param="strides" type="Shape">[2,2]</Argument>
-          <Argument param="padding" type="String">same</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Convolution2D">
-          <Argument param="filters" type="Int32">16</Argument>
-          <Argument param="kernel_size" type="Shape">[5,5]</Argument>
-          <Argument param="strides" type="Shape">[2,2]</Argument>
-          <Argument param="padding" type="String">same</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-        </Unit>
-        <Unit id="Core.Layers.BatchNormalization">
-          <Argument param="epsilon" type="Double">0.001</Argument>
-          <Argument param="axis" type="Int32">-1</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Activation">
-          <Argument param="activation" type="String">relu</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Convolution2D">
-          <Argument param="filters" type="Int32">32</Argument>
-          <Argument param="kernel_size" type="Shape">[3,3]</Argument>
-          <Argument param="strides" type="Shape">[1,1]</Argument>
-          <Argument param="padding" type="String">same</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Convolution2D">
-          <Argument param="filters" type="Int32">32</Argument>
-          <Argument param="kernel_size" type="Shape">[3,3]</Argument>
-          <Argument param="strides" type="Shape">[1,1]</Argument>
-          <Argument param="padding" type="String">same</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-        </Unit>
-        <Unit id="Core.Layers.BatchNormalization">
-          <Argument param="epsilon" type="Double">0.001</Argument>
-          <Argument param="axis" type="Int32">-1</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Activation">
-          <Argument param="activation" type="String">relu</Argument>
-        </Unit>
-        <Unit id="Core.Layers.MaxPool2D">
-          <Argument param="pool_size" type="Shape">[2,2]</Argument>
-          <Argument param="strides" type="Shape">[2,2]</Argument>
-          <Argument param="padding" type="String">valid</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Flatten" />
-        <Unit id="Core.Layers.Dense">
-          <Argument param="units" type="Int32">30</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-        </Unit>
-        <Unit id="Core.Layers.BatchNormalization">
-          <Argument param="epsilon" type="Double">0.001</Argument>
-          <Argument param="axis" type="Int32">-1</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Activation">
-          <Argument param="activation" type="String">relu</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Dropout">
-          <Argument param="rate" type="Double">0.1</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Dense">
-          <Argument param="units" type="Int32">3</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Activation">
-          <Argument param="activation" type="String">softmax</Argument>
-        </Unit>
-      </Network>
-      <BuildSteps>
-        <Training />
-        <ConfusionMatrix />
-      </BuildSteps>
-      <SymbolWeights override="False">
-        <SymbolWeight symbol="(unlabeled)" weight="1" />
-        <SymbolWeight symbol="empty_box" weight="1" />
-        <SymbolWeight symbol="table" weight="1" />
-      </SymbolWeights>
-      <Preprocessor override="False" inshape="[1,65,1]" intype="Float32" infreq="200" outshape="[100,65]" outtype="Float32">
-        <Unit id="Core.Packages.ContextualWindow">
-          <Argument param="contextual_length_sec" type="Double">0.5</Argument>
-          <Argument param="prediction_freq" type="Double">10</Argument>
-          <Argument param="input" type="String">data</Argument>
-          <Argument param="time_input" type="String">time</Argument>
-          <Argument param="output" type="String">data</Argument>
-          <Argument param="time_output" type="String">time</Argument>
-        </Unit>
-      </Preprocessor>
-      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
-    </Model>
-    <Model name="conv2d-medium-balanced-2" id="3130757e-73ed-4fcd-b586-ee42b900ebc6">
-      <LossFunction>CategoricalCrossentropy</LossFunction>
-      <Epochs>100</Epochs>
-      <BatchSize>16</BatchSize>
-      <SplitCount>16</SplitCount>
-      <Patience>20</Patience>
-      <TrainingEnvironment>
-      </TrainingEnvironment>
-      <Optimizer>
-        <LearningRate>0.004</LearningRate>
-        <WeightDecay>0.0001</WeightDecay>
-      </Optimizer>
-      <Network inshape="[100,65]" intype="Float32" infreq="0" outshape="[3]" outtype="Float32">
-        <Unit id="Core.Layers.Reshape">
-          <Argument param="shape" type="Shape">[100,65,1]</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Convolution2D">
-          <Argument param="filters" type="Int32">16</Argument>
-          <Argument param="kernel_size" type="Shape">[5,5]</Argument>
-          <Argument param="strides" type="Shape">[2,2]</Argument>
-          <Argument param="padding" type="String">same</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-        </Unit>
-        <Unit id="Core.Layers.BatchNormalization">
-          <Argument param="epsilon" type="Double">0.001</Argument>
-          <Argument param="axis" type="Int32">-1</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Activation">
-          <Argument param="activation" type="String">relu</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Convolution2D">
-          <Argument param="filters" type="Int32">32</Argument>
-          <Argument param="kernel_size" type="Shape">[5,5]</Argument>
-          <Argument param="strides" type="Shape">[2,2]</Argument>
-          <Argument param="padding" type="String">same</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Convolution2D">
-          <Argument param="filters" type="Int32">32</Argument>
-          <Argument param="kernel_size" type="Shape">[5,5]</Argument>
-          <Argument param="strides" type="Shape">[2,2]</Argument>
-          <Argument param="padding" type="String">same</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-        </Unit>
-        <Unit id="Core.Layers.BatchNormalization">
-          <Argument param="epsilon" type="Double">0.001</Argument>
-          <Argument param="axis" type="Int32">-1</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Activation">
-          <Argument param="activation" type="String">relu</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Convolution2D">
-          <Argument param="filters" type="Int32">32</Argument>
-          <Argument param="kernel_size" type="Shape">[3,3]</Argument>
-          <Argument param="strides" type="Shape">[1,1]</Argument>
-          <Argument param="padding" type="String">same</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Convolution2D">
-          <Argument param="filters" type="Int32">32</Argument>
-          <Argument param="kernel_size" type="Shape">[3,3]</Argument>
-          <Argument param="strides" type="Shape">[1,1]</Argument>
-          <Argument param="padding" type="String">same</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-        </Unit>
-        <Unit id="Core.Layers.BatchNormalization">
-          <Argument param="epsilon" type="Double">0.001</Argument>
-          <Argument param="axis" type="Int32">-1</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Activation">
-          <Argument param="activation" type="String">relu</Argument>
-        </Unit>
-        <Unit id="Core.Layers.MaxPool2D">
-          <Argument param="pool_size" type="Shape">[2,2]</Argument>
-          <Argument param="strides" type="Shape">[2,2]</Argument>
-          <Argument param="padding" type="String">valid</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Flatten" />
-        <Unit id="Core.Layers.Dense">
-          <Argument param="units" type="Int32">30</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-        </Unit>
-        <Unit id="Core.Layers.BatchNormalization">
-          <Argument param="epsilon" type="Double">0.001</Argument>
-          <Argument param="axis" type="Int32">-1</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Activation">
-          <Argument param="activation" type="String">relu</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Dropout">
-          <Argument param="rate" type="Double">0.1</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Dense">
-          <Argument param="units" type="Int32">3</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Activation">
-          <Argument param="activation" type="String">softmax</Argument>
-        </Unit>
-      </Network>
-      <BuildSteps>
-        <Training />
-        <ConfusionMatrix />
-      </BuildSteps>
-      <SymbolWeights override="False">
-        <SymbolWeight symbol="(unlabeled)" weight="1" />
-        <SymbolWeight symbol="empty_box" weight="1" />
-        <SymbolWeight symbol="table" weight="1" />
-      </SymbolWeights>
-      <Preprocessor override="False" inshape="[1,65,1]" intype="Float32" infreq="200" outshape="[100,65]" outtype="Float32">
-        <Unit id="Core.Packages.ContextualWindow">
-          <Argument param="contextual_length_sec" type="Double">0.5</Argument>
-          <Argument param="prediction_freq" type="Double">10</Argument>
-          <Argument param="input" type="String">data</Argument>
-          <Argument param="time_input" type="String">time</Argument>
-          <Argument param="output" type="String">data</Argument>
-          <Argument param="time_output" type="String">time</Argument>
-        </Unit>
-      </Preprocessor>
-      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
-    </Model>
-    <Model name="conv2d-medium-balanced-3" id="7e4cf26c-acdc-456f-ac7d-20814fe6c5f9">
-      <LossFunction>CategoricalCrossentropy</LossFunction>
-      <Epochs>100</Epochs>
-      <BatchSize>16</BatchSize>
-      <SplitCount>16</SplitCount>
-      <Patience>20</Patience>
-      <TrainingEnvironment>
-      </TrainingEnvironment>
-      <Optimizer>
-        <LearningRate>0.004</LearningRate>
-        <WeightDecay>0.0001</WeightDecay>
-      </Optimizer>
-      <Network inshape="[100,65]" intype="Float32" infreq="0" outshape="[3]" outtype="Float32">
-        <Unit id="Core.Layers.Reshape">
-          <Argument param="shape" type="Shape">[100,65,1]</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Convolution2D">
-          <Argument param="filters" type="Int32">16</Argument>
-          <Argument param="kernel_size" type="Shape">[5,5]</Argument>
-          <Argument param="strides" type="Shape">[2,2]</Argument>
-          <Argument param="padding" type="String">same</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-        </Unit>
-        <Unit id="Core.Layers.BatchNormalization">
-          <Argument param="epsilon" type="Double">0.001</Argument>
-          <Argument param="axis" type="Int32">-1</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Activation">
-          <Argument param="activation" type="String">relu</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Convolution2D">
-          <Argument param="filters" type="Int32">32</Argument>
-          <Argument param="kernel_size" type="Shape">[5,5]</Argument>
-          <Argument param="strides" type="Shape">[2,2]</Argument>
-          <Argument param="padding" type="String">same</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Convolution2D">
-          <Argument param="filters" type="Int32">32</Argument>
-          <Argument param="kernel_size" type="Shape">[5,5]</Argument>
-          <Argument param="strides" type="Shape">[2,2]</Argument>
-          <Argument param="padding" type="String">same</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-        </Unit>
-        <Unit id="Core.Layers.BatchNormalization">
-          <Argument param="epsilon" type="Double">0.001</Argument>
-          <Argument param="axis" type="Int32">-1</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Activation">
-          <Argument param="activation" type="String">relu</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Convolution2D">
-          <Argument param="filters" type="Int32">64</Argument>
-          <Argument param="kernel_size" type="Shape">[3,3]</Argument>
-          <Argument param="strides" type="Shape">[1,1]</Argument>
-          <Argument param="padding" type="String">same</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Convolution2D">
-          <Argument param="filters" type="Int32">64</Argument>
-          <Argument param="kernel_size" type="Shape">[3,3]</Argument>
-          <Argument param="strides" type="Shape">[1,1]</Argument>
-          <Argument param="padding" type="String">same</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-        </Unit>
-        <Unit id="Core.Layers.BatchNormalization">
-          <Argument param="epsilon" type="Double">0.001</Argument>
-          <Argument param="axis" type="Int32">-1</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Activation">
-          <Argument param="activation" type="String">relu</Argument>
-        </Unit>
-        <Unit id="Core.Layers.MaxPool2D">
-          <Argument param="pool_size" type="Shape">[2,2]</Argument>
-          <Argument param="strides" type="Shape">[2,2]</Argument>
-          <Argument param="padding" type="String">valid</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Flatten" />
-        <Unit id="Core.Layers.Dense">
-          <Argument param="units" type="Int32">30</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-        </Unit>
-        <Unit id="Core.Layers.BatchNormalization">
-          <Argument param="epsilon" type="Double">0.001</Argument>
-          <Argument param="axis" type="Int32">-1</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Activation">
-          <Argument param="activation" type="String">relu</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Dropout">
-          <Argument param="rate" type="Double">0.1</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Dense">
-          <Argument param="units" type="Int32">3</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Activation">
-          <Argument param="activation" type="String">softmax</Argument>
-        </Unit>
-      </Network>
-      <BuildSteps>
-        <Training />
-        <ConfusionMatrix />
-      </BuildSteps>
-      <SymbolWeights override="False">
-        <SymbolWeight symbol="(unlabeled)" weight="1" />
-        <SymbolWeight symbol="empty_box" weight="1" />
-        <SymbolWeight symbol="table" weight="1" />
-      </SymbolWeights>
-      <Preprocessor override="False" inshape="[1,65,1]" intype="Float32" infreq="200" outshape="[100,65]" outtype="Float32">
         <Unit id="Core.Packages.ContextualWindow">
           <Argument param="contextual_length_sec" type="Double">0.5</Argument>
           <Argument param="prediction_freq" type="Double">10</Argument>
@@ -1062,20 +585,12 @@
       <Symbol name="empty_box" id="1" weight="1" />
       <Symbol name="table" id="2" weight="1" />
     </SymbolMap>
-    <DataSet id="unassigned" targetSize="0" labels="Unassigned">
-      <Session name="unlabeled" sessionId="687a2d05-c175-427f-8bf2-9b611d6f601d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Frobenius norm Data" tags="LabelsMissing">
-        <DataFile shape="[1,65,1]" samplerate="200" modified="5250751802190107466" start="0.0024999" length="119.995">../Radar_data_livecollection/setup_13_02/unlabeled/Frobenius-norm-Data.data</DataFile>
-        <SessionFile>../Radar_data_livecollection/setup_13_02/unlabeled/unlabeled.imsession</SessionFile>
-        <LabelFile modified="5250751802185799579">../Radar_data_livecollection/setup_13_02/unlabeled/Live-Labeling.label</LabelFile>
-        <Labels />
-        <CustomColumnValues />
-      </Session>
-    </DataSet>
+    <DataSet id="unassigned" targetSize="0" labels="Unassigned" />
     <DataSet id="train" targetSize="0.6" labels="Complete">
       <Session name="mixed_3" sessionId="9f1b8494-807a-4dae-84bf-ceaf74f4d482" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Frobenius norm Data" tags="None">
-        <DataFile shape="[1,65,1]" samplerate="200" modified="5250751731767387904" start="0.0024999" length="300.475">../Radar_data_livecollection/setup_13_02/mixed_3/Frobenius-norm-Data.data</DataFile>
+        <DataFile shape="[1,65,1]" samplerate="200" modified="5250751884733774331" start="0.0024999" length="300.475">../Radar_data_livecollection/setup_13_02/mixed_3/Frobenius-norm-Data.data</DataFile>
         <SessionFile>../Radar_data_livecollection/setup_13_02/mixed_3/mixed_3.imsession</SessionFile>
-        <LabelFile modified="5250751731747387904">../Radar_data_livecollection/setup_13_02/mixed_3/Live-Labeling.label</LabelFile>
+        <LabelFile modified="5250751884733774331">../Radar_data_livecollection/setup_13_02/mixed_3/Live-Labeling.label</LabelFile>
         <Labels>
           <Label count="2" length="107.9725298">table</Label>
           <Label count="2" length="95.7851771">empty_box</Label>
@@ -1083,9 +598,9 @@
         <CustomColumnValues />
       </Session>
       <Session name="mixed_4" sessionId="8e6f6e2e-5ed7-442e-b661-e8065c6f23f3" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Frobenius norm Data" tags="None">
-        <DataFile shape="[1,65,1]" samplerate="200" modified="5250751735227387904" start="0.0024999" length="300.475">../Radar_data_livecollection/setup_13_02/mixed_4/Frobenius-norm-Data.data</DataFile>
+        <DataFile shape="[1,65,1]" samplerate="200" modified="5250751884739316721" start="0.0024999" length="300.475">../Radar_data_livecollection/setup_13_02/mixed_4/Frobenius-norm-Data.data</DataFile>
         <SessionFile>../Radar_data_livecollection/setup_13_02/mixed_4/mixed_4.imsession</SessionFile>
-        <LabelFile modified="5250751779644263631">../Radar_data_livecollection/setup_13_02/mixed_4/Live-Labeling.label</LabelFile>
+        <LabelFile modified="5250751884739316721">../Radar_data_livecollection/setup_13_02/mixed_4/Live-Labeling.label</LabelFile>
         <Labels>
           <Label count="2" length="144.3019927">table</Label>
           <Label count="2" length="110.0113634">empty_box</Label>
@@ -1093,9 +608,9 @@
         <CustomColumnValues />
       </Session>
       <Session name="mixed10" sessionId="26b95553-d7df-46e9-ae2b-5f42dbf34399" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Frobenius norm Data" tags="None">
-        <DataFile shape="[1,65,1]" samplerate="200" modified="5250751775001589044" start="0.0024999" length="300.475">../Radar_data_livecollection/setup_13_02/mixed10/Frobenius-norm-Data.data</DataFile>
+        <DataFile shape="[1,65,1]" samplerate="200" modified="5250751884694710794" start="0.0024999" length="300.475">../Radar_data_livecollection/setup_13_02/mixed10/Frobenius-norm-Data.data</DataFile>
         <SessionFile>../Radar_data_livecollection/setup_13_02/mixed10/mixed10.imsession</SessionFile>
-        <LabelFile modified="5250751774991334143">../Radar_data_livecollection/setup_13_02/mixed10/Live-Labeling.label</LabelFile>
+        <LabelFile modified="5250751884694731276">../Radar_data_livecollection/setup_13_02/mixed10/Live-Labeling.label</LabelFile>
         <Labels>
           <Label count="1" length="114.2485942">table</Label>
           <Label count="1" length="112.5819409">empty_box</Label>
@@ -1103,9 +618,9 @@
         <CustomColumnValues />
       </Session>
       <Session name="mixed12" sessionId="90cfd283-fbff-435d-a757-ee4e484fed45" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Frobenius norm Data" tags="None">
-        <DataFile shape="[1,65,1]" samplerate="200" modified="5250751794828218125" start="0.0024999" length="169.915">../Radar_data_livecollection/mixed12/Frobenius-norm-Data.data</DataFile>
+        <DataFile shape="[1,65,1]" samplerate="200" modified="5250751884668528108" start="0.0024999" length="169.915">../Radar_data_livecollection/mixed12/Frobenius-norm-Data.data</DataFile>
         <SessionFile>../Radar_data_livecollection/mixed12/mixed12.imsession</SessionFile>
-        <LabelFile modified="5250751794822439280">../Radar_data_livecollection/mixed12/Live-Labeling.label</LabelFile>
+        <LabelFile modified="5250751884668528108">../Radar_data_livecollection/mixed12/Live-Labeling.label</LabelFile>
         <Labels>
           <Label count="2" length="84.0781465">empty_box</Label>
           <Label count="1" length="35.9941647">table</Label>
@@ -1113,9 +628,9 @@
         <CustomColumnValues />
       </Session>
       <Session name="mixed5" sessionId="cba7303a-d4e6-40a0-8c20-96d947e60dbd" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Frobenius norm Data" tags="None">
-        <DataFile shape="[1,65,1]" samplerate="200" modified="5250751752892535167" start="0.0024999" length="300.475">../Radar_data_livecollection/setup_13_02/mixed5/Frobenius-norm-Data.data</DataFile>
+        <DataFile shape="[1,65,1]" samplerate="200" modified="5250751884703478772" start="0.0024999" length="300.475">../Radar_data_livecollection/setup_13_02/mixed5/Frobenius-norm-Data.data</DataFile>
         <SessionFile>../Radar_data_livecollection/setup_13_02/mixed5/mixed5.imsession</SessionFile>
-        <LabelFile modified="5250751778022344416">../Radar_data_livecollection/setup_13_02/mixed5/Live-Labeling.label</LabelFile>
+        <LabelFile modified="5250751884703478772">../Radar_data_livecollection/setup_13_02/mixed5/Live-Labeling.label</LabelFile>
         <Labels>
           <Label count="3" length="136.2816949">empty_box</Label>
           <Label count="2" length="96.8448032">table</Label>
@@ -1123,9 +638,9 @@
         <CustomColumnValues />
       </Session>
       <Session name="mixed6" sessionId="dfe833e2-544a-4aeb-a087-deca0a4a5c4d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Frobenius norm Data" tags="None">
-        <DataFile shape="[1,65,1]" samplerate="200" modified="5250751757303534136" start="0.0024999" length="300.475">../Radar_data_livecollection/setup_13_02/mixed6/Frobenius-norm-Data.data</DataFile>
+        <DataFile shape="[1,65,1]" samplerate="200" modified="5250751884709675113" start="0.0024999" length="300.475">../Radar_data_livecollection/setup_13_02/mixed6/Frobenius-norm-Data.data</DataFile>
         <SessionFile>../Radar_data_livecollection/setup_13_02/mixed6/mixed6.imsession</SessionFile>
-        <LabelFile modified="5250751757293311507">../Radar_data_livecollection/setup_13_02/mixed6/Live-Labeling.label</LabelFile>
+        <LabelFile modified="5250751884709749366">../Radar_data_livecollection/setup_13_02/mixed6/Live-Labeling.label</LabelFile>
         <Labels>
           <Label count="2" length="112.7697974">table</Label>
           <Label count="1" length="73.6939922">empty_box</Label>
@@ -1133,29 +648,69 @@
         <CustomColumnValues />
       </Session>
       <Session name="box_1214" sessionId="c773cc3b-3a48-49ac-86f4-f6e24b0db84b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Frobenius norm Data" tags="None">
-        <DataFile shape="[1,65,1]" samplerate="200" modified="5250751799172951375" start="0.0024999" length="121.915">../Radar_data_livecollection/setup_13_02/box_1214/Frobenius-norm-Data.data</DataFile>
+        <DataFile shape="[1,65,1]" samplerate="200" modified="5250751884672122826" start="0.0024999" length="121.915">../Radar_data_livecollection/setup_13_02/box_1214/Frobenius-norm-Data.data</DataFile>
         <SessionFile>../Radar_data_livecollection/setup_13_02/box_1214/box_1214.imsession</SessionFile>
-        <LabelFile modified="5250751803500652455">../Radar_data_livecollection/setup_13_02/box_1214/Live-Labeling.label</LabelFile>
+        <LabelFile modified="5250751884672246562">../Radar_data_livecollection/setup_13_02/box_1214/Live-Labeling.label</LabelFile>
         <Labels>
           <Label count="5" length="111.972847">empty_box</Label>
         </Labels>
         <CustomColumnValues />
       </Session>
       <Session name="table_1211" sessionId="f2b24b9f-302c-4fd4-a7c9-33b8c4d40e3c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Frobenius norm Data" tags="None">
-        <DataFile shape="[1,65,1]" samplerate="200" modified="5250751797500931224" start="0.0024999" length="117.595">../Radar_data_livecollection/setup_13_02/table_1211/Frobenius-norm-Data.data</DataFile>
+        <DataFile shape="[1,65,1]" samplerate="200" modified="5250751884747609382" start="0.0024999" length="117.595">../Radar_data_livecollection/setup_13_02/table_1211/Frobenius-norm-Data.data</DataFile>
         <SessionFile>../Radar_data_livecollection/setup_13_02/table_1211/table_1211.imsession</SessionFile>
-        <LabelFile modified="5250751797496546313">../Radar_data_livecollection/setup_13_02/table_1211/Live-Labeling.label</LabelFile>
+        <LabelFile modified="5250751884747609382">../Radar_data_livecollection/setup_13_02/table_1211/Live-Labeling.label</LabelFile>
         <Labels>
           <Label count="1" length="116.6283298">table</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Session-2026-02-15--10-47-34" sessionId="db228e5e-dbb2-494d-932c-bacd8067cb6b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Frobenius norm Data" tags="None">
+        <DataFile shape="[1,65,1]" samplerate="200" modified="5250753475296052442" start="0.0024999" length="175.785">../Radar_data_livecollection/setup_150226/Session-2026-02-15--10-47-34/Frobenius-norm-Data.data</DataFile>
+        <SessionFile>../Radar_data_livecollection/setup_150226/Session-2026-02-15--10-47-34/Session-2026-02-15--10-47-34.imsession</SessionFile>
+        <LabelFile modified="5250753475288550057">../Radar_data_livecollection/setup_150226/Session-2026-02-15--10-47-34/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="13" length="128.5342518">empty_box</Label>
+          <Label count="1" length="11.0400001">table</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Session-2026-02-15--10-52-17" sessionId="9e061316-e697-48b7-9285-66566a7dcbe1" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Frobenius norm Data" tags="None">
+        <DataFile shape="[1,65,1]" samplerate="200" modified="5250753477926450208" start="0.0024999" length="158.875">../Radar_data_livecollection/setup_150226/Session-2026-02-15--10-52-17/Frobenius-norm-Data.data</DataFile>
+        <SessionFile>../Radar_data_livecollection/setup_150226/Session-2026-02-15--10-52-17/Session-2026-02-15--10-52-17.imsession</SessionFile>
+        <LabelFile modified="5250753489795377158">../Radar_data_livecollection/setup_150226/Session-2026-02-15--10-52-17/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="2" length="14.1054898">table</Label>
+          <Label count="7" length="118.470541">empty_box</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Session-2026-02-15--10-55-20" sessionId="90c18e40-6784-44f4-8ccf-dbc237429a6c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Frobenius norm Data" tags="None">
+        <DataFile shape="[1,65,1]" samplerate="200" modified="5250753479763923229" start="0.0024999" length="119.035">../Radar_data_livecollection/setup_150226/Session-2026-02-15--10-55-20/Frobenius-norm-Data.data</DataFile>
+        <SessionFile>../Radar_data_livecollection/setup_150226/Session-2026-02-15--10-55-20/Session-2026-02-15--10-55-20.imsession</SessionFile>
+        <LabelFile modified="5250753490123257769">../Radar_data_livecollection/setup_150226/Session-2026-02-15--10-55-20/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="2" length="45.2941237">table</Label>
+          <Label count="4" length="50.9351288">empty_box</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Session-2026-02-15--11-22-49" sessionId="5a95466a-a332-470e-bb0a-111bc331e641" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Frobenius norm Data" tags="None">
+        <DataFile shape="[1,65,1]" samplerate="200" modified="5250753496188860211" start="0.0024999" length="83.995">../Radar_data_livecollection/setup_150226/Session-2026-02-15--11-22-49/Frobenius-norm-Data.data</DataFile>
+        <SessionFile>../Radar_data_livecollection/setup_150226/Session-2026-02-15--11-22-49/Session-2026-02-15--11-22-49.imsession</SessionFile>
+        <LabelFile modified="5250753496187025958">../Radar_data_livecollection/setup_150226/Session-2026-02-15--11-22-49/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="4" length="57.9914705">empty_box</Label>
+          <Label count="1" length="14.3596008">table</Label>
         </Labels>
         <CustomColumnValues />
       </Session>
     </DataSet>
     <DataSet id="validation" targetSize="0.2" labels="Complete">
       <Session name="mixed7" sessionId="d4a42b15-c0f1-4bd8-be3d-0e4889555ac3" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Frobenius norm Data" tags="None">
-        <DataFile shape="[1,65,1]" samplerate="200" modified="5250751762419328500" start="0.0024999" length="300.475">../Radar_data_livecollection/setup_13_02/mixed7/Frobenius-norm-Data.data</DataFile>
+        <DataFile shape="[1,65,1]" samplerate="200" modified="5250751884716026003" start="0.0024999" length="300.475">../Radar_data_livecollection/setup_13_02/mixed7/Frobenius-norm-Data.data</DataFile>
         <SessionFile>../Radar_data_livecollection/setup_13_02/mixed7/mixed7.imsession</SessionFile>
-        <LabelFile modified="5250751777871951480">../Radar_data_livecollection/setup_13_02/mixed7/Live-Labeling.label</LabelFile>
+        <LabelFile modified="5250751884716092161">../Radar_data_livecollection/setup_13_02/mixed7/Live-Labeling.label</LabelFile>
         <Labels>
           <Label count="1" length="103.2370276">table</Label>
           <Label count="1" length="156.2672137">empty_box</Label>
@@ -1163,21 +718,30 @@
         <CustomColumnValues />
       </Session>
       <Session name="mixed8" sessionId="e1bfadd1-5190-4d05-ad1f-3602d9682551" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Frobenius norm Data" tags="None">
-        <DataFile shape="[1,65,1]" samplerate="200" modified="5250751766796142517" start="0.0024999" length="300.475">../Radar_data_livecollection/setup_13_02/mixed8/Frobenius-norm-Data.data</DataFile>
+        <DataFile shape="[1,65,1]" samplerate="200" modified="5250751884721985566" start="0.0024999" length="300.475">../Radar_data_livecollection/setup_13_02/mixed8/Frobenius-norm-Data.data</DataFile>
         <SessionFile>../Radar_data_livecollection/setup_13_02/mixed8/mixed8.imsession</SessionFile>
-        <LabelFile modified="5250751766786722463">../Radar_data_livecollection/setup_13_02/mixed8/Live-Labeling.label</LabelFile>
+        <LabelFile modified="5250751884722033735">../Radar_data_livecollection/setup_13_02/mixed8/Live-Labeling.label</LabelFile>
         <Labels>
           <Label count="1" length="67.5356432">table</Label>
           <Label count="2" length="181.9826832">empty_box</Label>
         </Labels>
         <CustomColumnValues />
       </Session>
+      <Session name="Session-2026-02-15--10-58-18" sessionId="40ff736e-9a6b-4c71-9f8e-66ba90aba2c5" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Frobenius norm Data" tags="None">
+        <DataFile shape="[1,65,1]" samplerate="200" modified="5250753481513708738" start="0.0024999" length="122.395">../Radar_data_livecollection/setup_150226/Session-2026-02-15--10-58-18/Frobenius-norm-Data.data</DataFile>
+        <SessionFile>../Radar_data_livecollection/setup_150226/Session-2026-02-15--10-58-18/Session-2026-02-15--10-58-18.imsession</SessionFile>
+        <LabelFile modified="5250753490294857857">../Radar_data_livecollection/setup_150226/Session-2026-02-15--10-58-18/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="11" length="104.8272419">empty_box</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
     </DataSet>
     <DataSet id="test" targetSize="0.2" labels="Complete">
       <Session name="mixed9" sessionId="87499a44-9e3c-43ab-820a-f4b37826db23" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Frobenius norm Data" tags="None">
-        <DataFile shape="[1,65,1]" samplerate="200" modified="5250751771139976601" start="0.0024999" length="300.475">../Radar_data_livecollection/setup_13_02/mixed9/Frobenius-norm-Data.data</DataFile>
+        <DataFile shape="[1,65,1]" samplerate="200" modified="5250751884727527457" start="0.0024999" length="300.475">../Radar_data_livecollection/setup_13_02/mixed9/Frobenius-norm-Data.data</DataFile>
         <SessionFile>../Radar_data_livecollection/setup_13_02/mixed9/mixed9.imsession</SessionFile>
-        <LabelFile modified="5250751771129788745">../Radar_data_livecollection/setup_13_02/mixed9/Live-Labeling.label</LabelFile>
+        <LabelFile modified="5250751884727527457">../Radar_data_livecollection/setup_13_02/mixed9/Live-Labeling.label</LabelFile>
         <Labels>
           <Label count="2" length="93.8704952">table</Label>
           <Label count="1" length="94.7019696">empty_box</Label>
@@ -1185,12 +749,22 @@
         <CustomColumnValues />
       </Session>
       <Session name="mixed11" sessionId="50d02f8f-e234-4ae9-a067-fc059240c79c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Frobenius norm Data" tags="None">
-        <DataFile shape="[1,65,1]" samplerate="200" modified="5250751792296163569" start="0.0024999" length="300.475">../Radar_data_livecollection/mixed11/Frobenius-norm-Data.data</DataFile>
+        <DataFile shape="[1,65,1]" samplerate="200" modified="5250751884664895262" start="0.0024999" length="300.475">../Radar_data_livecollection/mixed11/Frobenius-norm-Data.data</DataFile>
         <SessionFile>../Radar_data_livecollection/mixed11/mixed11.imsession</SessionFile>
-        <LabelFile modified="5250751792286024051">../Radar_data_livecollection/mixed11/Live-Labeling.label</LabelFile>
+        <LabelFile modified="5250751884664915457">../Radar_data_livecollection/mixed11/Live-Labeling.label</LabelFile>
         <Labels>
           <Label count="1" length="80.7194181">table</Label>
           <Label count="2" length="114.5038687">empty_box</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Session-2026-02-15--11-19-28" sessionId="0da6512e-170b-419a-a91b-714afda798da" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Frobenius norm Data" tags="None">
+        <DataFile shape="[1,65,1]" samplerate="200" modified="5250753494199548620" start="0.0024999" length="123.83500000000001">../Radar_data_livecollection/setup_150226/Session-2026-02-15--11-19-28/Frobenius-norm-Data.data</DataFile>
+        <SessionFile>../Radar_data_livecollection/setup_150226/Session-2026-02-15--11-19-28/Session-2026-02-15--11-19-28.imsession</SessionFile>
+        <LabelFile modified="5250753494196983096">../Radar_data_livecollection/setup_150226/Session-2026-02-15--11-19-28/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="7" length="97.945966">empty_box</Label>
+          <Label count="1" length="6.4549999">table</Label>
         </Labels>
         <CustomColumnValues />
       </Session>
