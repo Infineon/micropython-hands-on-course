@@ -1,12 +1,22 @@
+# Wifi
 SSID = "A1-257215"
 KEY = "AL9AVZ3GKU"
 
-# define labels (order must be the same as in Deepcraft)
+# Deepcraft
 LABELS = ["nothing", "on", "off", "dimmer","lighter"]
 
 # IMU
+I2C_SCL = 'P0_2'
+I2C_SDA = 'P0_3'
+
 SAMPLE_FREQ = 50 # Hz
 SAMPLE_TIME = 1.0 / SAMPLE_FREQ
 
-# Lamp specific settings
+# Lamp
 BRIGHTNESS_STEP = 10
+
+BULB_IP = "192.168.1.100"
+BULB_PORT = 55443
+
+GESTURE_THRESHOLD = 0.90
+COOLDOWN_MS = 800

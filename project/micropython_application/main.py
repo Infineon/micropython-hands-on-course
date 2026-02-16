@@ -1,64 +1,62 @@
-# Deepcraft
 import array
+import time
 import deepcraft_model
-from configuration import LABELS
-
-# IMU
 from machine import I2C
 import bmi270
+import configuration as cfg
+from yeelight import MiLight
 
-# Timing (50Hz main loop)
-import time
-from configuratioin import SAMPLE_TIME
+# --- Initialization ---
+# Initialize the light using parameters from config
+bulb = MiLight(cfg.BULB_IP, cfg.BULB_PORT)
 
-# --- set up the deepcraft model ---
+# Setup DeepCraft AI model
 model = deepcraft_model.DEEPCRAFT()
 model.init()
-
-input_dim = model.get_model_input_dim()
 output_dim = model.get_model_output_dim()
+output_buffer = array.array('f', [0.0] * output_dim)
 
-# Output-Buffer Array aus Floats, mit 0.0 initialisiert
-output_buffer = array.array(’f’, [0.0] * output_dim)
-
-
-# --- initialize the bmi270 IMU ---
-# documentation: https://www.hackster.io/Infineon_Team/accelerometer-gyroscope-with-psoc-6-and-micropython-757eb3
-i2c = I2C(scl='P0_2', sda='P0_3')
+# Setup IMU (BMI270) using configured pins
+i2c = I2C(scl=cfg.I2C_SCL, sda=cfg.I2C_SDA)
 bmi = bmi270.BMI270(i2c)
 
-# --- initialize the 50 Hz time ---
-# Set the base point for the 50Hz calculation. The starting point of the next iteration is calculated in the main loop
-next_loop = time.ticks_ms()
+# Timing and state variables
+next_tick = time.ticks_ms()
+last_action_time = 0
 
 # --- Main Loop ---
 while True:    
-    # --- read sensor data ---
-    # [2,3] array
-    # Data format from Deepcraft: Accel_X,Accel_Y,Accel_Z,Gyro_X,Gyro_Y,Gyro_Z
+    # Capture sensor data (Acceleration and Gyroscope)
     sensor_data = [bmi.accel(), bmi.gyro()]
-
-
-    # --- feed the model with data ---
     model.enqueue(sensor_data)
-    
 
-    # --- print result ---
-    # Test if the model has calculated a result
+    # Check if the model has a new prediction ready
     if model.dequeue(output_buffer) == 0:
-        # print out the result to the serial port
-        for idx, score in enumerate(output_buffer):
-            # End is a carriage return and not a newline. This way the output gets overwritten
-            print(f"Label: {LABELS[idx]:<12} Score: {score*100:.2f}%", end='\r')
-    
-    
-    # --- timing to 50Hz ---
-    # calculate the starting point of the next iteration
-    next_loop = time.ticks_add(next_tick, SAMPLE_TIME)
-    # calculate the necessary sleep time
+        # Get the label with the highest confidence score
+        max_score = max(output_buffer)
+        max_idx = list(output_buffer).index(max_score)
+        label = cfg.LABELS[max_idx]
+
+        # Trigger action only if confidence exceeds threshold and cooldown has expired
+        current_time = time.ticks_ms()
+        if max_score > cfg.GESTURE_THRESHOLD and (time.ticks_diff(current_time, last_action_time) > cfg.COOLDOWN_MS):
+            
+            # Map the predicted label to the corresponding bulb method
+            match label:
+                case "Geste_Toggle":
+                    bulb.toggle()
+                case "Geste_Heller":
+                    bulb.brighten()
+                case "Geste_Dunkler":
+                    bulb.dim()
+                case "Geste_Aus":
+                    bulb.turn_off()
+            
+            last_action_time = current_time
+
+    # Frequency control for 50Hz operation
+    next_tick = time.ticks_add(next_tick, cfg.SAMPLE_TIME)
     sleep_duration = time.ticks_diff(next_tick, time.ticks_ms())
     
     if sleep_duration > 0:
         time.sleep_ms(sleep_duration)
-
-# --- eof ---
