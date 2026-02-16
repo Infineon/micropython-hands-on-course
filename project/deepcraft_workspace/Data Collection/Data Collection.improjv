@@ -1,16 +1,50 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <ImagimobStudio version="2.0.0.0">
-  <Project>
-    <Resources>
-      <Intrinsic>Imaginet.Units.Base</Intrinsic>
-      <Intrinsic>Imaginet.Units.Math</Intrinsic>
-      <Intrinsic>Imaginet.Units.Io</Intrinsic>
-      <Intrinsic>Imaginet.Units.Signal</Intrinsic>
-      <Intrinsic>Imaginet.Units.TensorFlow</Intrinsic>
-      <Intrinsic>Imaginet.Units.TensorFlowLite</Intrinsic>
-      <Intrinsic>Imaginet.Units.KerasModel</Intrinsic>
-      <Intrinsic>ImagimobStudio.Modules.DataTrack.Unit</Intrinsic>
-      <Intrinsic>ImagimobStudio.Modules.LabelTrack.Unit</Intrinsic>
-    </Resources>
+  <Project id="1ac0abd5-5e3a-463c-be8a-4429c5a36c1d">
+    <Resources />
+    <Options>
+      <UseCMSIS>true</UseCMSIS>
+    </Options>
+    <CodeGenerationParams>
+      <Unit id="d419d86b-7b57-41d3-9a74-ab428f13a213">
+        <Input>node_4</Input>
+        <Output>node_9</Output>
+        <Platform>GenericC99</Platform>
+        <OutputFileName>model</OutputFileName>
+        <OutputDirectory>../Model Training/Models/conv2d-large-accuracy-0/CodeGen</OutputDirectory>
+        <CPrefix>IMAI_</CPrefix>
+        <TimestampTracking>false</TimestampTracking>
+        <UseCmsis>false</UseCmsis>
+        <TensorFlowLiteMicroApi>ModusToolbox_ML_Middleware_V3</TensorFlowLiteMicroApi>
+        <MetaWareOptions>
+          <VBufferSize>128000</VBufferSize>
+          <BatchSize>256</BatchSize>
+          <SampleCount>1000</SampleCount>
+          <Clusters>50</Clusters>
+          <ReGenerateData>false</ReGenerateData>
+          <RecursionLimit>1000</RecursionLimit>
+          <MaxBlockDependency>3</MaxBlockDependency>
+          <Sparsity>false</Sparsity>
+          <EthosUMemoryMode>SharedSram</EthosUMemoryMode>
+          <EthosUOptimize>Performance</EthosUOptimize>
+          <EthosUSystemConfig>Pse8xSOCMEM300MHz</EthosUSystemConfig>
+          <EthosUTensorAllocator>HillClimb</EthosUTensorAllocator>
+        </MetaWareOptions>
+        <MetaWareOptions>
+          <VBufferSize>128000</VBufferSize>
+          <BatchSize>256</BatchSize>
+          <SampleCount>1000</SampleCount>
+          <Clusters>50</Clusters>
+          <ReGenerateData>false</ReGenerateData>
+          <RecursionLimit>1000</RecursionLimit>
+          <MaxBlockDependency>3</MaxBlockDependency>
+          <Sparsity>false</Sparsity>
+          <EthosUMemoryMode>SharedSram</EthosUMemoryMode>
+          <EthosUOptimize>Performance</EthosUOptimize>
+          <EthosUSystemConfig>Pse8xSOCMEM300MHz</EthosUSystemConfig>
+          <EthosUTensorAllocator>HillClimb</EthosUTensorAllocator>
+        </MetaWareOptions>
+      </Unit>
+    </CodeGenerationParams>
   </Project>
 </ImagimobStudio>
