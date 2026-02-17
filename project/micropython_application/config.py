@@ -6,8 +6,8 @@
 # ============================================================
 
 # ---- Wi-Fi ----
-WIFI_SSID = "YourWiFiSSID"
-WIFI_PASS = "YourWiFiPassword"
+WIFI_SSID = "Galaxy S24"
+WIFI_PASS = "nix12345"
 WIFI_TIMEOUT = 15  # seconds to wait for connection
 
 # ---- Server ----
