@@ -8,7 +8,7 @@ LABELS = ["nothing", "on", "off", "dimmer","lighter"]
 SAMPLE_FREQ = 50 # Hz
 SAMPLE_TIME = 1.0 / SAMPLE_FREQ
 
-GESTURE_THRESHOLD = 0.90
+GESTURE_THRESHOLD = 0.60
 COOLDOWN_MS = 800
 
 # Lamp Network
