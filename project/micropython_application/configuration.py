@@ -3,12 +3,12 @@ SSID = "iPhone von Manuel"
 KEY = "Licht1234"
 
 # Deepcraft
-LABELS = ["nothing", "on", "off", "dimmer","lighter"]
+LABELS = [".", "1", "0", "+","-"]
 
 SAMPLE_FREQ = 50 # Hz
 SAMPLE_TIME = 1.0 / SAMPLE_FREQ
 
-GESTURE_THRESHOLD = 0.60
+GESTURE_THRESHOLD = 0.1
 COOLDOWN_MS = 800
 
 # Lamp Network
