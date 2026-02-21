@@ -1,4 +1,5 @@
-from secrets import ssid, key
+ssid = "iPhone von Manuel"
+key = "Leontina"
 
 def network_connect() :
     import network

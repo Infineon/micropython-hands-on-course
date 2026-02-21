@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ImagimobStudio>
+  <Timeline id="c5b93af1-5258-470b-bcb8-25154e1e960e">
+    <Tracks>
+      <Track name="conv1d-small-accuracy-10" type="datacsv" timecoded="TimestampBeginDuration">
+        <PayloadFile TrackType="Prediction">conv1d-small-accuracy-10.data</PayloadFile>
+        <Offset unit="seconds">1.979999</Offset>
+      </Track>
+    </Tracks>
+  </Timeline>
+</ImagimobStudio>
