@@ -4,14 +4,10 @@ import deepcraft_model as m
 from machine import I2C, Pin
 import bmi270
 import configuration as cfg
-from lightbulb import Lightbulb
 
 # -------------------------
 # INITIALISIERUNG
 # -------------------------
-# lightbulb
-bulb = Lightbulb(cfg.BULB_IP, cfg.BULB_PORT)
-
 # model
 model = m.DEEPCRAFT()
 model.init()
@@ -24,22 +20,16 @@ input_buffer = array.array('f', [0.0] * input_dim)
 i2c = I2C(scl=Pin(cfg.I2C_SCL), sda=Pin(cfg.I2C_SDA))
 bmi = bmi270.BMI270(i2c)
 
-# User LED initialisieren
-# Wir nutzen cfg.USER_LED ('P5.3') aus deiner Konfiguration
-led = Pin(cfg.USER_LED, Pin.OUT)
-led_timer = 0  # Hilfsvariable für das Blinken
-
 # Variables and constants
 sample_time_ms = int(cfg.SAMPLE_TIME * 1000)
-loop_start = 0
-last_action_time = 0
 
 max_score = -1
 best_label = 0
+cnt = 0
 
-# -------------------------
+# -------------------------------------------------
 # Hilfsfunktionen
-# -------------------------
+# -------------------------------------------------
 
 def argmax(buffer, length):
     max_index = 0
@@ -52,25 +42,15 @@ def argmax(buffer, length):
 
     return max_index, max_value
 
+print("Start main loop")
+
 # -------------------------
 # MAIN LOOP
 # -------------------------
 
-# init led blink time
-led_timer = time.ticks_ms()
-
-print("Start main loop")
-
-while True:    
+while True:
 
     loop_start = time.ticks_ms()
-
-    # -------- Heartbeat LED --------
-    # Alle 500ms den Zustand der LED invertieren
-    if time.ticks_diff(loop_start, led_timer) > 1000:
-        led.value(0 if led.value() else 1)
-        led_timer = loop_start
-
 
     # -------- Sensor lesen --------
     try:
@@ -85,7 +65,7 @@ while True:
     input_buffer[3] = gx
     input_buffer[4] = gy
     input_buffer[5] = gz
-
+    
     # -------- Modell beladen --------
     model.enqueue(input_buffer)
 
@@ -95,25 +75,18 @@ while True:
         # wahrscheinlichstes Ergebnis speichern
         best_label, max_score = argmax(output_buffer, output_dim)
 
-        # only send command if above threshold. Dont send commands twice -> COOLDWON time between commands
-        if max_score > cfg.GESTURE_THRESHOLD and best_label != 0 and loop_start > last_action_time + cfg.COOLDOWN_MS:
-            last_action_time = loop_start
+        if max_score > cfg.GESTURE_THRESHOLD:
+            print(cfg.LABELS[best_label])
             
-            # Mapping der Labels auf Aktionen
-            if best_label == 1:
-                bulb.turn_on()
-            elif best_label == 2:
-                bulb.turn_off()
-            elif best_label == 3:
-                bulb.brighten()
-            elif best_label == 4:
-                bulb.dim()
+            # visibility in the terminal
+            cnt += 1
+            if cnt > 10:
+                print("")
+                cnt = 0
 
-    
     # -------- Sauberes Timing --------
     elapsed = time.ticks_diff(time.ticks_ms(), loop_start)
 
     if elapsed < sample_time_ms:
         time.sleep_ms(sample_time_ms - elapsed)
-
-
+        

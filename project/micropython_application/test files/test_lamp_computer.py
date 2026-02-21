@@ -1,8 +1,8 @@
 import configuration as cfg
-from lightbulb import MiLight
+from lightbulb import Lightbulb
 
 # 1. Initialisierung der Lampe (Daten aus der configuration.py)
-bulb = MiLight(cfg.BULB_IP, cfg.BULB_PORT)
+bulb = Lightbulb(cfg.BULB_IP, cfg.BULB_PORT)
 
 print("Kommandozeilen-Testprogramm gestartet.")
 print("-" * 40)

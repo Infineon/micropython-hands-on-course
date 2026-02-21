@@ -1,7 +1,7 @@
 import socket
 import configuration as cfg
 
-class MiLight:
+class Lightbulb:
     def __init__(self, ip, port):
         self.ip = ip
         self.port = port

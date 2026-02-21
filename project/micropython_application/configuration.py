@@ -39,4 +39,5 @@ I2C_SCL = 'P0_2'
 I2C_SDA = 'P0_3'
 
 # User Button
-BUTTON_PIN = 'P5.2'
+USER_BUTTON = 'P5_2'
+USER_LED = 'P5_3'
