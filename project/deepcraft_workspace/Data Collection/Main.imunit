@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Imaginet version="2.0.0.0">
+  <Compound unit="d419d86b-7b57-41d3-9a74-ab428f13a213">
+    <Nodes>
+      <LabelListNode id="node_2" width="120" height="120" x="290.9333333333334" y="146.66666666666666" enabled="true" profiling="false" name="Predefined Labels">
+        <Label>On</Label>
+        <Label>Off</Label>
+        <Label>Dimmer</Label>
+        <Label>Lighter</Label>
+      </LabelListNode>
+      <DeviceNode id="node_4" x="152.0000000000001" y="376.40000000000003" enabled="true" profiling="false" name="IMU" board="290de5cb-460b-41bf-1f19-8d0e2316aff7" boardName="PSOC 6 AI (CY8CKIT-06S2-AI)" device="2" />
+      <DotNetNode id="node_14" x="546.8000000000001" y="556.8000000000009" enabled="true" profiling="false" name="conv2d-large-accuracy-0 model">
+        <Interop assembly="Imaginet.Units.KerasModel" class="Imaginet.Units.KerasModel.KerasModel" method="LoadNetwork" />
+        <Input param="input" type="Tensor" />
+        <Input param="File" type="FileReference">
+          <StringArgument>C:/Users/mgass/Documents/TU/Semester3/Projektarbeit/micropython-hands-on-course/project/deepcraft_workspace/Model Training/Models/conv2d-large-accuracy-0/conv2d-large-accuracy-0.h5</StringArgument>
+        </Input>
+        <Output param="output" type="Tensor" />
+      </DotNetNode>
+      <DotNetNode id="node_13" x="546.8000000000001" y="414.8" enabled="true" profiling="false" name="conv2d-large-accuracy-0 preprocessor">
+        <Interop assembly="Imaginet.Units.KerasModel" class="Imaginet.Units.KerasModel.KerasModel" method="LoadPreprocessor" />
+        <Input param="input" type="Tensor" />
+        <Input param="File" type="FileReference">
+          <StringArgument>C:/Users/mgass/Documents/TU/Semester3/Projektarbeit/micropython-hands-on-course/project/deepcraft_workspace/Model Training/Models/conv2d-large-accuracy-0/conv2d-large-accuracy-0.h5</StringArgument>
+        </Input>
+        <Output param="output" type="Tensor" />
+      </DotNetNode>
+      <UnitNode id="node_7" x="1040.6460018929492" y="600.2055804269742" enabled="true" profiling="false" name="conv1dlstm-large-accuracy-2 model Labels" unit="ImagimobStudio.Modules.LabelTrack" />
+    </Nodes>
+    <Connections>
+      <Connection>
+        <Source node="node_13" param="output" />
+        <Target node="node_14" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_4" param="Combined" />
+        <Target node="node_13" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_14" param="output" />
+        <Target node="node_7" param="data" />
+      </Connection>
+    </Connections>
+  </Compound>
+</Imaginet>

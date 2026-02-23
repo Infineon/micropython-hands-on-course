@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="0.9">
+  <Timeline id="e696b610-8633-414d-8683-13349054ac4f">
+    <Tracks>
+      <Track name="Live Labeling" type="labelcsv">
+        <PayloadFile>Live-Labeling.label</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="conv2d-large-accuracy-0 model Data" type="datacsv" timecoded="TimestampBeginDuration" isLabelTrack="False">
+        <PayloadFile>conv2d-large-accuracy-0-model-Data.data</PayloadFile>
+        <Shape>
+          <Axis name="Labels" size="5">
+            <Label index="0">unlabeled}</Label>
+            <Label index="1">On</Label>
+            <Label index="2">Off</Label>
+            <Label index="3">Dimmer</Label>
+            <Label index="4">Lighter</Label>
+          </Axis>
+        </Shape>
+      </Track>
+      <Track name="conv2d-large-accuracy-0 model Labels" type="labelcsv">
+        <PayloadFile>conv2d-large-accuracy-0-model-Labels.label</PayloadFile>
+        <Shape />
+      </Track>
+    </Tracks>
+  </Timeline>
+</ImagimobStudio>
